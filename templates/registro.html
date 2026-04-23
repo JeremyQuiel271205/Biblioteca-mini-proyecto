@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registro</h1>
+    <form action="{{ url_for('tipo_usuario') }}" method="post">
+        <table>
+            <tr>
+                <td><label>Nombre</label></td>
+                <td><input type="text" name="nombre" id="nombre"></td>
+            </tr>
+            <tr>
+                <td><label>Apellido</label></td>
+                <td><input type="text" name="apellido" id="apellido"></td>
+            </tr>
+            <tr>
+                <td><label>Carrera</label></td>
+                <td><input type="text" name="carrera" id="carrera"></td>
+            </tr>
+            <tr>
+                <td>
+                    estudiante
+                    <input type="radio" name="tipo" id="tipo_estudiante" value="estudiante">
+                </td>
+                <td>
+                    profesor
+                    <input type="radio" name="tipo" id="tipo_profesor" value="profesor">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Siguiente"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
