@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Biblioteca-registro</title>
+</head>
+<body>
+    <h1>Registro de usuarios</h1>
+    <form action="{{ url_for('crear_usuario') }}" method="post">
+        <div>
+            <table>
+                <tr>
+                    <td><label>Nombre</label></td>
+                    <td><input type="text" name="nombre" id="nombre"></td>
+                </tr>
+                <tr>
+                    <td><label>Apellido</label></td>
+                    <td><input type="text" name="apellido" id="apellido"></td>
+                </tr>
+                <tr>
+                    <td><label>Correo</label></td>
+                    <td><input type="text" name="correo" id="correo"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>estudiante</label>
+                        <input type="radio" name="tipo" id="tipo_estudiante" onclick="mostrarCampos()">
+                    </td>
+                    <td>
+                        <label>Profesor</label>
+                        <input type="radio" name="tipo" id="tipo_profesor" onclick="mostrarCampos()">
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+
+        <div id="estudiante" style="display: none"> <!-- para que no se muestre por defecto -->
+            <table>
+                <tr>
+                    <td><label>Eres becado?</label></td>
+                    <td><input type="checkbox" name="becado" id="becado"></td>
+                </tr>
+                <tr>
+                    <td><label>Carrera</label></td>
+                    <td><input type="text" name="carrera" id="carrera"></td>
+                </tr>
+            </table>
+            
+            <br>
+            <input type="submit" value="Registrarse">
+        </div>
+
+        <div id="profesor" style="display: none;">
+             <table>
+                <tr>
+                    <td><label>Asignatura</label></td>
+                    <td><input type="text" name="asignatura" id="asignatura"></td>
+                </tr>
+            </table>
+
+            <br>
+            <input type="submit" value="Registrarse">
+        </div>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

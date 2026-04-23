@@ -11,13 +11,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-@app.route('/registro')
+@app.route('/registro/usuarios')
 def registro_usuarios():
-    return render_template('registro.html')
+    return render_template('registro_usuario.html')
 
 @app.route('/registro/libros')
 def registro_libros():
@@ -29,11 +29,11 @@ def login():
         return redirect(url_for('usuario'))
     return redirect(url_for('index'))
 
-@app.route('/usuario')
+@app.route('/usuario', methods = ['GET', 'POST'])
 def usuario():
     return render_template('usuario.html')
 
-@app.route('/usuario/correo')
+@app.route('/usuario/correo', methods = ['GET', 'POST'])
 def usuario_correo():
     return render_template('usuario_correo.html')
 
@@ -41,13 +41,21 @@ def usuario_correo():
 def usuario_prestamo():
     return render_template('usuario_prestamo.html')
 
-@app.route('/registro/tipo/usuario', methods = ['GET', 'POST'])
-def tipo_usuario():
-    tipo = "estudiante" #ejemplo
+@app.route('/crear/usuario', methods=['GET', 'POST'])
+def crear_usuario():
+    return redirect(url_for('index'))
 
-    if tipo == "estudiante":
-        return render_template('tipo_estudiante.html')
-    elif tipo == "profesor":
-        return render_template('tipo_profesor.html')
+@app.route('/crear/libros', methods=['GET', 'POST'])
+def crear_libros():
+    return redirect(url_for('index'))
+
+@app.route('/logout')
+def logout():
+    return redirect(url_for('index'))
+
+@app.route('/volver')
+def volver():
+    return redirect(url_for('usuario'))
+    
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca-hacer-prestamo</title>
+    <title>Biblioteca-prestamo</title>
 </head>
 <body>
-    
+    <form action="{{ url_for('volver') }}">
+        <input type="submit" value="Volver">
+    </form>
+    <h1>Prestamos</h1>
+    <form action="{{ url_for('usuario') }}" method="post">
+        <div>
+            <table>
+                <tr>
+                    <td><label>ID del libro</label></td>
+                    <td><input type="number" name="id_libro" id="id_libro"></td>
+                </tr>
+            </table>
+            <br><br>
+            <input type="submit" value="Pedir">
+        </div>
+
+        <div>
+            <label>Lista de libros aqui</label>
+        </div>
+    </form>
 </body>
 </html>

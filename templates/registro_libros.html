@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Biblioteca-registro</title>
+</head>
+<body>
+    <form action="{{ url_for('volver') }}">
+        <input type="submit" value="Volver">
+    </form>
+    <h1>Registro de libros</h1>
+    <form action="{{ url_for('crear_libros') }}" method="post">
+        <div>
+            <table>
+                <tr>
+                    <td><label>Titulo del libro</label></td>
+                    <td><input type="text" name="titulo" id="titulo"></td>
+                </tr>
+                <tr>
+                    <td><label>Nombre del Autor</label></td>
+                    <td><input type="text" name="nombre" id="nombre"></td>
+                </tr>
+                <tr>
+                    <td><label>Apellido del Autor</label></td>
+                    <td><input type="text" name="apellido" id="apellido"></td>
+                    <td><label>(no obligatorio)</label></td>
+                </tr>
+                <tr>
+                    <td><label>Precio base</label></td>
+                    <td><input type="number" name="precio" id="precio"></td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <input type="submit" value="Registrar">
+        </div>
+</body>
+</html>

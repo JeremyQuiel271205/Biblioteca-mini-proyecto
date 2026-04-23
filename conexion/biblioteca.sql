@@ -51,3 +51,4 @@ CREATE TABLE notificacion(
 );
 
 ALTER TABLE usuario ADD COLUMN contra VARCHAR(100) NOT NULL;
+ALTER TABLE libro MODIFY COLUMN apellido_autor VARCHAR(50) NULL DEFAULT '';
