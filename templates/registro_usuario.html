@@ -7,7 +7,15 @@
     <title>Biblioteca-registro</title>
 </head>
 <body>
+    <form action="{{ url_for('volver') }}">
+        <input type="submit" value="Volver">
+    </form>
+    <br>
+
     <h1>Registro de usuarios</h1>
+
+    <p>{{ mensaje }}</p>
+
     <form action="{{ url_for('crear_usuario') }}" method="post">
         <div>
             <table>
@@ -24,13 +32,17 @@
                     <td><input type="text" name="correo" id="correo"></td>
                 </tr>
                 <tr>
+                    <td><label>Contraseña</label></td>
+                    <td><input type="password" name="contra" id="contra"></td>
+                </tr>
+                <tr>
                     <td>
                         <label>estudiante</label>
-                        <input type="radio" name="tipo" id="tipo_estudiante" onclick="mostrarCampos()">
+                        <input type="radio" name="tipo" id="tipo_estudiante" value="estudiante" onclick="mostrarCampos()">
                     </td>
                     <td>
                         <label>Profesor</label>
-                        <input type="radio" name="tipo" id="tipo_profesor" onclick="mostrarCampos()">
+                        <input type="radio" name="tipo" id="tipo_profesor" value="profesor" onclick="mostrarCampos()">
                     </td>
                 </tr>
             </table>
@@ -42,7 +54,7 @@
             <table>
                 <tr>
                     <td><label>Eres becado?</label></td>
-                    <td><input type="checkbox" name="becado" id="becado"></td>
+                    <td><input type="checkbox" name="becado" id="becado" value="si"></td>
                 </tr>
                 <tr>
                     <td><label>Carrera</label></td>
