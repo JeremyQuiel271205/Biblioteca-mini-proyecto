@@ -10,7 +10,10 @@
         <input type="submit" value="Volver">
     </form>
     <h1>Prestamos</h1>
-    <form action="{{ url_for('usuario') }}" method="post">
+
+    <p>{{ mensaje }}</p>
+
+    <form action="{{ url_for('crear_prestamo') }}" method="post">
         <div>
             <table>
                 <tr>
@@ -23,7 +26,22 @@
         </div>
 
         <div>
-            <label>Lista de libros aqui</label>
+            <br>
+            <label>Lista de libros aqui:</label>
+
+            {% if codigo_mensaje == "error" %}
+                <p>ERROR CARGA DE LIBROS: {{ e }}</p>
+            {% elif codigo_mensaje == "vacia" %}
+                <p>No hay libros disponibles en este momento</p>
+            {% else %}
+                {% for libro in lista%}
+                    <p>__________________________________________________________________</p>
+                    <p>ID: {{ libro[0] }}</p>
+                    <p>Titulo: {{ libro[1] }}</p>
+                    <p>Autor: {{ libro[2] }} {{ libro[3] }}</p>
+                    <p>Precio: {{ libro[4] }}</p>
+                {% endfor %}
+            {% endif %}
         </div>
     </form>
 </body>
