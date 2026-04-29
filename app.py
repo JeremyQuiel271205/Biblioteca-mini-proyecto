@@ -35,7 +35,7 @@ def registro_libros():
     session.setdefault('mensaje_registro_libro', "")
     return render_template('registro_libros.html', mensaje = session.get('mensaje_registro_libro'))
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         correo = request.form.get('correo')
