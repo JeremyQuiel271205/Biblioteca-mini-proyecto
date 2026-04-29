@@ -27,3 +27,11 @@ class Conn:
             print(f"ERROR AL CONECTAR: {e}")
             return None
             
+    @staticmethod
+    def disconnect(db):
+        if db:
+            db.close()
+            print("Desconectado de la base de datos")
+            return
+        
+        print("no hay conexion")
